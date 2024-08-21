@@ -1,14 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const loadTodosFromLocalStorage = () => {
+    const savedTodos = localStorage.getItem('todos');
+    return savedTodos ? JSON.parse(savedTodos) : [];
+};
+
+const saveTodosToLocalStorage = (todos) => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+};
+
 export const todoSlice = createSlice({
     name: 'todo',
     initialState: {
-       todos: [],
+        todos: loadTodosFromLocalStorage(),
     },
     reducers: {
         addTodo: (state, action) => {
             state.todos.push({ text: action.payload });
-        },
+            saveTodosToLocalStorage(state.todos);
+        }, 
     }
 })
 
