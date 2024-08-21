@@ -15,7 +15,7 @@ const AddTodo = ({ newTodo, setNewTodo }) => {
     const handleAddTodo = () => {
         if (newTodo.trim()) {
             dispatch(addTodo(newTodo));
-            setNewTodo(''); // Clear the input after adding the todo
+            setNewTodo(''); 
         }
     };
 
