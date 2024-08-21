@@ -15,7 +15,7 @@ const AddTodo = ({ newTodo, setNewTodo }) => {
     const handleAddTodo = () => {
         if (newTodo.trim()) {
             dispatch(addTodo(newTodo));
-            setNewTodo('');  
+            setNewTodo(''); // Clear the input after adding the todo
         }
     };
 
@@ -27,9 +27,10 @@ const AddTodo = ({ newTodo, setNewTodo }) => {
                 onChange={e => setNewTodo(e.target.value)}
                 placeholder="What I need"
             />
-            <button onClick={handleAddTodo}>Add Todo</button>
+            <button onClick={handleAddTodo}>Add Todo item</button>
         </div>
     );
 };
 
 export default AddTodo;
+
