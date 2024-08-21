@@ -1,20 +1,14 @@
 import './App.css'; 
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import AddTodo from './components/AddTodo/AddTodo';
 import Todos from './components/Todos/Todos';
 import Title from './components/Title/Title';
 import TodoCounter from './components/TodoCounter/TodoCounter';
-import { Provider, useSelector } from 'react-redux'; 
+import { Provider } from 'react-redux'; 
 import { store } from './store';
-import { selectTodos } from './features/todo/todoSlice';
 
 function App() {
     const [newTodo, setNewTodo] = useState('');
-    const todos = useSelector(selectTodos);  
- 
-    useEffect(() => {
-        localStorage.setItem('todos', JSON.stringify(todos));
-    }, [todos]);
 
     return (
         <Provider store={store}>
@@ -31,4 +25,3 @@ function App() {
 }
 
 export default App;
-
